@@ -16,5 +16,22 @@ class Game:
     # self.round()
   
   def getPlayerChoice(self):
+    print('== Make your choice ==\n1 - rock\n2 - paper\n3 - scissors\n4 - exit game')
+    choice = input('Enter number: ')
+    try:
+      int(choice)
+    except ValueError:
+      print('\n== Wrong value!')
+      exit()
+    if int(choice) == 4:
+      print()
+      print('='*10, 'FINISH', '='*10)
+      exit()
+    elif int(choice) > 4:
+      print('\n== Wrong value!')
+      exit()
+    self.playerChoice = self.choices[int(choice)-1]
 
   def getComputerChoice(self):
+    choice = random.randint(0,2)
+    self.computerChoice = self.choices[choice]
